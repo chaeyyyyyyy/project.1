@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>자녀기대신장계산기</title>
+	<style>
+		.contain {width:250px;
+			      background:none;
+			      border:1px solid #2478FF;
+				  position:relative;
+				  text-align:center;
+				  margin:300px auto;
+				  padding:10px;}
+		.radiobox {margin:10px 0px;
+				   background:none;}
+		article {margin:10px auto;}		   
+		button {position:absolute; 
+				background:none; 
+				border:1px solid #2478FF;
+				left:100px;}
+
+	</style>
+</head>
+<body>
+	<div class="contain">
+		<div class="radiobox">
+			<input type="radio" name="gender" id="gender1" value="" checked="checked">남아
+			<input type="radio" name="gender" id="gender2">여아			
+		</div>
+		<input type="text" size="13" placeholder="아버지의신장" name="height" id="height1">cm
+		<input type="text" size="13" placeholder="어머니의신장" name="height" id="height2">cm
+		<article>
+		</article>
+		<button onclick="cal()">계산하기</button>
+		<div id="kidHeight" style="margin:100px auto; "> 당신자녀의 기대신장은? </div>
+	</div>
+	<script>
+		function cal() {
+			var height3 = parseFloat(height1.value) + parseFloat(height2.value);
+			if (gender1.checked) {var  myHeight = (height3 + 13) / 2; 
+								  kidHeight.innerHTML = "자녀의 기대신장은" + myHeight + "cm입니다."}
+							if (gender2.checked) {var  myHeight = (height3 - 13) / 2; 
+								  kidHeight.innerHTML = "자녀의 기대신장은" + myHeight + "cm입니다."}	  
+			}
+	</script>
+</body>
+</html>
